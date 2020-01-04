@@ -10,6 +10,7 @@ class Widget(QMainWindow):
         super().__init__()
         uic.loadUi('Ui.ui', self)
         self.add.clicked.connect(self.run)
+        self.colors = ['yellow', 'black', 'red', 'orange', 'white', 'blue', 'green', 'purple', 'grey']
 
     def run(self):
         self.update()
@@ -22,7 +23,8 @@ class Widget(QMainWindow):
 
     def drawing(self, qp):
         print('ok')
-        qp.setBrush(QColor('yellow'))
+        c = random.randint(0, 8)
+        qp.setBrush(QColor(self.colors[c]))
         x = random.randint(100, 500)
         y = random.randint(100, 400)
         r = random.randint(10, 300)
